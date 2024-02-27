@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
     const productData = await Product.findAll({ include: Category, Tag });
     if (!productData) {
       res.status(404).send("Not Found");
+      return;
     }
     res.status(200).json(productData);
   } catch (err) {
@@ -24,11 +25,11 @@ router.get("/:id", async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     const pIdData = await Product.findByPk(req.params.id, {
-      include: Category,
-      Tag,
+      include: [Category, Tag],
     });
     if (!pIdData) {
       res.status(404).send("Not Found");
+      return;
     }
     res.status(200).json(pIdData);
   } catch (err) {
@@ -118,6 +119,7 @@ router.delete("/:id", async (req, res) => {
     const pIdData = await Product.destroy({ where: { id: req.params.id } });
     if (!pIdData) {
       res.status(404);
+      return;
     }
     res.status(200).send("Deleted Successfully!");
   } catch (err) {
