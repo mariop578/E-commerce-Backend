@@ -38,7 +38,8 @@ This project is licensed under the MIT License License - see the [LICENSE.md](LI
 
 ## Demo
 
-[Link](./assets/demo.mp4)
+https://github.com/mariop578/E-commerce-Backend/assets/147361826/fd45e078-9bb8-43f1-81bd-ed5e40696e20
+
 
 ## Questions
 
